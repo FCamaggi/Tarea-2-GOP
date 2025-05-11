@@ -1,0 +1,57 @@
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage{csvsimple}
+\usepackage{pgfplotstable}
+\usepackage{siunitx} % Para formato de números
+
+\geometry{a4paper, margin=2.5cm}
+
+% Configuraciones adicionales
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.5}
+
+% Comandos personalizados
+\newcommand{\question}[1]{\section*{Pregunta #1}}
+\newcommand{\subquestion}[1]{\subsection*{Subpregunta #1}}
+\newcommand{\answer}{\noindent\textbf{Respuesta:}\par}
+
+% Comando para importar tablas CSV con formato automático
+\newcommand{\importCSV}[4]{%
+    % #1: ruta archivo CSV, #2: número de columnas, #3: cabecera de tabla, #4: comandos por fila
+    \csvreader[
+        tabular=#2,
+        table head=\toprule #3 \\\midrule,
+        command=#4,
+        late after line=\\,
+        table foot=\bottomrule,
+        respect dollar=false,
+        respect percent=false
+    ]{#1}{}{} % Los {} vacíos son para el mapping de columnas y el contenido
+}
+
+% Comando para controlar automáticamente el tamaño de tablas grandes
+\newcommand{\adjustableTable}[3]{%
+    % #1: ancho de tabla (ej: 1.0\textwidth), #2: caption, #3: contenido
+    \begin{table}[H]
+        \centering
+        \caption{#2}
+        \resizebox{#1}{!}{#3}
+    \end{table}
+}

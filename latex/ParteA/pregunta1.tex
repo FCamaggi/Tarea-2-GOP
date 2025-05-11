@@ -1,0 +1,299 @@
+\question{1}
+\label{q:pregunta1}
+
+% Descripción de la pregunta
+Modele el problema mediante optimización lineal, explicando el significado de parámetros, variables, función objetivo y restricciones utilizadas.
+
+\answer
+
+\subsection*{Contexto del problema}
+
+La Fundación Circular ha lanzado una iniciativa para reacondicionar ropa donada y entregarla a comunidades vulnerables. El problema se centra en la gestión eficiente de una planta que:
+
+\begin{itemize}
+    \item Recibe donaciones de ropa en buen y mal estado
+    \item Transforma ropa en mal estado en género textil
+    \item Produce nuevas prendas a partir del género textil
+    \item Satisface demandas de prendas en cada periodo
+\end{itemize}
+
+El objetivo es minimizar los costos totales de operación sobre un horizonte de planificación definido, considerando costos de personal, procesamiento, almacenamiento y penalizaciones por demandas no satisfechas.
+
+\subsection*{Conjuntos e índices}
+
+\begin{itemize}
+    \item $T$: Conjunto de periodos del horizonte de planificación, indexado por $t \in \{1,2,...,T\}$
+\end{itemize}
+
+\subsection*{Parámetros}
+
+\subsubsection*{Parámetros de entrada de materiales}
+
+\begin{itemize}
+    \item $kb_t$: Kilogramos de ropa en buen estado que llegan en el periodo $t$
+    \item $km_t$: Kilogramos de ropa en mal estado que llegan en el periodo $t$
+    \item $rb$: Inventario inicial de ropa en buen estado (kg)
+    \item $rm$: Inventario inicial de ropa en mal estado (kg)
+    \item $p$: Peso promedio de cada unidad de ropa (kg/prenda)
+\end{itemize}
+
+\subsubsection*{Parámetros de demanda}
+
+\begin{itemize}
+    \item $d_t$: Demanda de prendas para el periodo $t$
+    \item $cp$: Costo de penalización por demanda no satisfecha (\$/prenda)
+\end{itemize}
+
+\subsubsection*{Parámetros de costos}
+
+\begin{itemize}
+    \item $ct$: Costo por trabajador contratado por boleta (\$/persona/periodo)
+    \item $g$: Costo unitario de transformación a género (\$/kg)
+    \item $n$: Costo unitario de producción de prendas desde género (\$/kg)
+    \item $a$: Costo de almacenamiento (\$/kg/periodo)
+    \item $cc$: Costo por hora normal trabajada (\$/hora)
+\end{itemize}
+
+\subsubsection*{Parámetros de capacidad}
+
+\begin{itemize}
+    \item $s$: Capacidad máxima de almacenamiento (kg)
+    \item $w_0$: Dotación inicial de trabajadores
+    \item $h$: Horas de trabajo por trabajador por periodo
+    \item $\tau_g$: Horas-hombre para transformar 1 kg de ropa en mal estado a género
+    \item $\tau_n$: Horas-hombre para confeccionar 1 kg de ropa reutilizada desde género
+\end{itemize}
+
+\subsection*{Variables de decisión}
+
+\subsubsection*{Variables de procesamiento y producción}
+
+\begin{itemize}
+    \item $X_{t}$: Kilogramos de ropa en buen estado utilizados para satisfacer demanda en periodo $t$
+    \begin{itemize}
+        \item Justificación: Representa el flujo principal de ropa en buen estado que se destina directamente para satisfacer la demanda.
+        \item Unidades: Kilogramos (kg)
+        \item Dominio: $X_t \geq 0$ (variable continua no negativa)
+    \end{itemize}
+
+    \item $Y_{t}$: Kilogramos de ropa en mal estado transformados a género en periodo $t$
+    \begin{itemize}
+        \item Justificación: Representa la cantidad de ropa en mal estado que se procesa para obtener género textil.
+        \item Unidades: Kilogramos (kg)
+        \item Dominio: $Y_t \geq 0$ (variable continua no negativa)
+    \end{itemize}
+
+    \item $Z_{t}$: Kilogramos de género utilizados para fabricar prendas en periodo $t$
+    \begin{itemize}
+        \item Justificación: Representa la cantidad de género que se utiliza para producir prendas reutilizadas.
+        \item Unidades: Kilogramos (kg)
+        \item Dominio: $Z_t \geq 0$ (variable continua no negativa)
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Variables de inventario}
+
+\begin{itemize}
+    \item $IB_{t}$: Inventario de ropa en buen estado al final del periodo $t$
+    \begin{itemize}
+        \item Justificación: Control del stock de ropa en buen estado disponible entre periodos.
+        \item Unidades: Kilogramos (kg)
+        \item Dominio: $IB_t \geq 0$ (variable continua no negativa)
+    \end{itemize}
+
+    \item $IM_{t}$: Inventario de ropa en mal estado al final del periodo $t$
+    \begin{itemize}
+        \item Justificación: Control del stock de ropa en mal estado disponible entre periodos.
+        \item Unidades: Kilogramos (kg)
+        \item Dominio: $IM_t \geq 0$ (variable continua no negativa)
+    \end{itemize}
+
+    \item $IG_{t}$: Inventario de género al final del periodo $t$
+    \begin{itemize}
+        \item Justificación: Control del stock de género textil disponible entre periodos.
+        \item Unidades: Kilogramos (kg)
+        \item Dominio: $IG_t \geq 0$ (variable continua no negativa)
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Variables de recursos humanos}
+
+\begin{itemize}
+    \item $W_{t}$: Número de trabajadores por boleta contratados en periodo $t$
+    \begin{itemize}
+        \item Justificación: Representa la fuerza laboral adicional contratada para satisfacer la demanda de mano de obra.
+        \item Unidades: Personas (trabajadores)
+        \item Dominio: $W_t \geq 0$, entero (variable entera no negativa)
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Variables de satisfacción de demanda}
+
+\begin{itemize}
+    \item $NS_{t}$: Demanda no satisfecha en periodo $t$
+    \begin{itemize}
+        \item Justificación: Mide la cantidad de demanda que no puede ser cubierta durante el periodo.
+        \item Unidades: Prendas
+        \item Dominio: $NS_t \geq 0$ (variable continua no negativa)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Función objetivo}
+
+Minimizar el costo total de la operación:
+
+\begin{equation}
+\min Z = \sum_{t=1}^{T} \left[ W_t \cdot ct + cc \cdot h \cdot w_0 + g \cdot Y_t + n \cdot Z_t + a \cdot (IB_t + IM_t + IG_t) + cp \cdot NS_t \right]
+\end{equation}
+
+Esta función objetivo integra todos los componentes de costo que la Fundación Circular busca minimizar:
+
+\subsubsection*{Desglose de la función objetivo}
+
+\begin{enumerate}
+    \item \textbf{Costos de personal}:
+    \begin{itemize}
+        \item $W_t \cdot ct$: Costo de los trabajadores contratados por boleta en cada periodo $t$
+        \item $cc \cdot h \cdot w_0$: Costo fijo de la dotación inicial de trabajadores contratados
+        \item Justificación: Representa el gasto en recursos humanos, diferenciando entre personal fijo y temporal
+    \end{itemize}
+
+    \item \textbf{Costos de procesamiento}:
+    \begin{itemize}
+        \item $g \cdot Y_t$: Costo de transformar ropa en mal estado a género textil
+        \item $n \cdot Z_t$: Costo de producir prendas a partir de género textil
+        \item Justificación: Captura los costos variables asociados a los procesos productivos principales
+    \end{itemize}
+
+    \item \textbf{Costos de almacenamiento}:
+    \begin{itemize}
+        \item $a \cdot (IB_t + IM_t + IG_t)$: Costo de mantener inventarios de los tres tipos de materiales
+        \item Justificación: Refleja los costos de mantener stock entre periodos, aplicando el mismo costo unitario a todos los tipos de materiales conforme al enunciado
+    \end{itemize}
+
+    \item \textbf{Costos de penalización}:
+    \begin{itemize}
+        \item $cp \cdot NS_t$: Penalización por demanda no satisfecha
+        \item Justificación: Incorpora el costo social/económico de no entregar las prendas comprometidas
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{Restricciones}
+
+\subsubsection*{Restricciones de balance de inventario}
+
+Estas restricciones garantizan la conservación del flujo de materiales entre periodos consecutivos.
+
+\paragraph{Balance de inventario de ropa en buen estado}
+
+\begin{equation}
+IB_t = IB_{t-1} + kb_t - X_t \quad \forall t \in T
+\end{equation}
+
+Donde:
+\begin{itemize}
+    \item $IB_0 = rb$ (inventario inicial de ropa en buen estado)
+\end{itemize}
+
+\textbf{Interpretación}: El inventario de ropa en buen estado al final del periodo $t$ es igual al inventario del periodo anterior, más las llegadas de ropa en buen estado en el periodo actual, menos la cantidad utilizada para satisfacer demanda.
+
+\paragraph{Balance de inventario de ropa en mal estado}
+
+\begin{equation}
+IM_t = IM_{t-1} + km_t - Y_t \quad \forall t \in T
+\end{equation}
+
+Donde:
+\begin{itemize}
+    \item $IM_0 = rm$ (inventario inicial de ropa en mal estado)
+\end{itemize}
+
+\textbf{Interpretación}: El inventario de ropa en mal estado al final del periodo $t$ es igual al inventario del periodo anterior, más las llegadas de ropa en mal estado en el periodo actual, menos la cantidad transformada a género.
+
+\paragraph{Balance de inventario de género}
+
+\begin{equation}
+IG_t = IG_{t-1} + Y_t - Z_t \quad \forall t \in T
+\end{equation}
+
+Donde:
+\begin{itemize}
+    \item $IG_0 = 0$ (se asume que no hay inventario inicial de género)
+\end{itemize}
+
+\textbf{Interpretación}: El inventario de género textil al final del periodo $t$ es igual al inventario del periodo anterior, más la cantidad producida por transformación de ropa en mal estado, menos la cantidad utilizada para fabricar prendas.
+
+\subsubsection*{Restricción de capacidad de almacenamiento}
+
+\begin{equation}
+IB_t + IM_t + IG_t \leq s \quad \forall t \in T
+\end{equation}
+
+\textbf{Interpretación}: La suma de todos los inventarios al final de cada periodo no puede exceder la capacidad máxima de almacenamiento disponible ($s$ kg). Esta restricción asegura que la fundación no sobrepase su infraestructura de almacenamiento.
+
+\subsubsection*{Restricción de disponibilidad de horas-hombre}
+
+\begin{equation}
+\tau_g \cdot Y_t + \tau_n \cdot Z_t \leq h \cdot (w_0 + W_t) \quad \forall t \in T
+\end{equation}
+
+\textbf{Interpretación}: El tiempo total requerido para las operaciones de transformación de ropa a género ($\tau_g \cdot Y_t$) y fabricación de prendas desde género ($\tau_n \cdot Z_t$) no puede exceder la disponibilidad total de horas-hombre, determinada por el número total de trabajadores (contratados $w_0$ y por boleta $W_t$) multiplicado por las horas disponibles por trabajador ($h$).
+
+\subsubsection*{Restricción de satisfacción de la demanda}
+
+\begin{equation}
+\frac{X_t}{p} + \frac{Z_t}{p} + NS_t \geq d_t \quad \forall t \in T
+\end{equation}
+
+\textbf{Interpretación}: La demanda de prendas en cada periodo debe ser satisfecha mediante:
+\begin{itemize}
+    \item Prendas de ropa en buen estado ($\frac{X_t}{p}$ prendas, considerando que cada prenda pesa $p$ kg)
+    \item Prendas fabricadas a partir de género ($\frac{Z_t}{p}$ prendas)
+    \item Demanda no satisfecha ($NS_t$ prendas), que conlleva una penalización
+\end{itemize}
+
+\subsubsection*{Restricciones de dominio de variables}
+
+\begin{align}
+X_t, Y_t, Z_t, IB_t, IM_t, IG_t &\geq 0 \quad \forall t \in T\\
+W_t &\geq 0, \text{ entero} \quad \forall t \in T\\
+NS_t &\geq 0 \quad \forall t \in T
+\end{align}
+
+\subsection*{Justificación del modelo}
+
+Este modelo de optimización lineal captura todos los aspectos relevantes del problema de la Fundación Circular de manera comprehensiva:
+
+\begin{enumerate}
+    \item \textbf{Alineación con los objetivos de la fundación}
+    
+    El modelo está diseñado para minimizar los costos totales de operación mientras se gestionan eficientemente los recursos disponibles y se satisface la demanda de prendas para comunidades vulnerables. Esto se alinea perfectamente con el objetivo social de la fundación y su necesidad de operar de manera sostenible económicamente.
+
+    \item \textbf{Representación integral del sistema productivo}
+    
+    El modelo representa de manera completa el flujo de materiales y procesos de la Fundación Circular:
+    \begin{itemize}
+        \item \textbf{Sistema de tres flujos de materiales}: Ropa en buen estado, ropa en mal estado y género textil
+        \item \textbf{Procesos de transformación}: Conversión de ropa en mal estado a género y producción de prendas a partir de género
+        \item \textbf{Gestión de inventarios}: Control de stocks entre periodos con sus costos asociados
+        \item \textbf{Administración de recursos humanos}: Balance entre trabajadores fijos y contratados por periodo
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{Supuestos y limitaciones del modelo}
+
+\subsubsection*{Supuestos}
+\begin{itemize}
+    \item \textbf{Relaciones de peso constantes}: La transformación de ropa en mal estado a género y la fabricación de prendas desde género tienen una relación de 1:1 en términos de peso.
+    \item \textbf{Homogeneidad de prendas}: Todas las prendas tienen el mismo peso promedio $p$.
+    \item \textbf{Disponibilidad ilimitada de trabajadores por boleta}: No hay restricciones en la cantidad máxima de trabajadores por boleta que se pueden contratar.
+    \item \textbf{Linealidad de costos y tiempos}: Todos los costos y tiempos de procesamiento son lineales respecto a las cantidades procesadas.
+\end{itemize}
+
+\subsubsection*{Limitaciones}
+\begin{itemize}
+    \item \textbf{Determinístico}: No considera incertidumbre en parámetros como demanda o llegadas de donaciones.
+    \item \textbf{Homogeneidad}: No distingue entre diferentes tipos o calidades de prendas.
+    \item \textbf{Linealidad}: Asume relaciones lineales que podrían no reflejar completamente la realidad.
+    \item \textbf{Horizonte fijo}: Opera con un horizonte de planificación predefinido, sin considerar efectos posteriores.
+\end{itemize}

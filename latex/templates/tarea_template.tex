@@ -1,0 +1,115 @@
+% Template para la estructura completa de una tarea
+\documentclass[12pt, letterpaper]{article}
+
+% Preámbulo con todos los paquetes necesarios
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage{natbib}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{appendix}
+
+% Configuraciones de página
+\geometry{a4paper, margin=2.5cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.5}
+
+% Configuración de hipervínculos
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Tarea Z - Curso},
+    pdfauthor={Nombres de los estudiantes},
+    pdfsubject={Tema de la tarea},
+    pdfkeywords={palabras clave},
+}
+
+% Comandos personalizados
+\newcommand{\question}[1]{\section*{Pregunta #1}}
+\newcommand{\subquestion}[1]{\subsection*{Subpregunta #1}}
+\newcommand{\answer}{\noindent\textbf{Respuesta:}\par}
+
+% Configuración de encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Tarea Z}
+\lhead{Curso}
+\rfoot{Página \thepage}
+\lfoot{Grupo X}
+
+% Configuración de títulos
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% Configuración de código fuente
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    commentstyle=\color{green!50!black},
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=5pt
+}
+
+\begin{document}
+
+% Portada
+\input{portada}
+
+% Tabla de contenidos
+\tableofcontents
+\newpage
+
+% Lista de figuras y tablas (opcional)
+\listoffigures
+\listoftables
+\newpage
+
+% Introducción general (opcional)
+\section*{Introducción}
+% Texto de introducción general a la tarea
+
+% Partes de la tarea
+\input{ParteA/parteA}
+\input{ParteB/parteB}
+\input{ParteC/parteC}
+
+% Referencias bibliográficas (opcional)
+\section*{Referencias}
+\begin{thebibliography}{99}
+    \bibitem{ref1} Autor, A. (Año). \textit{Título del libro}. Editorial.
+    \bibitem{ref2} Autor, B. (Año). Título del artículo. \textit{Revista}, volumen(número), páginas.
+\end{thebibliography}
+
+% Apéndices (opcional)
+\begin{appendices}
+    \section{Apéndice 1}
+    % Contenido del apéndice 1
+    
+    \section{Apéndice 2}
+    % Contenido del apéndice 2
+\end{appendices}
+
+\end{document}

@@ -1,0 +1,78 @@
+% Template para importar tablas CSV directamente en LaTeX
+% Este archivo muestra diferentes ejemplos de cómo importar tablas CSV
+
+% Ejemplo básico de importación de CSV
+\begin{table}[H]
+    \centering
+    \caption{Título de la tabla}
+    \label{tab:tabla_ejemplo}
+    % Opciones para csvreader:
+    % 1. tabular: Formato de columnas (c = centrado, l = izquierda, r = derecha)
+    % 2. table head: Encabezados de columnas
+    % 3. command: Formato para procesar cada fila
+    \csvreader[
+        tabular=ccccc,
+        table head=\toprule \textbf{Col1} & \textbf{Col2} & \textbf{Col3} & \textbf{Col4} & \textbf{Col5} \\\midrule,
+        command=#1 & \$\num{#2}\$ & \$\num{#3}\$ & \$\num{#4}\$ & \$\num{#5}\$,
+        late after line=\\,
+        table foot=\bottomrule,
+        respect dollar=false,
+        respect percent=false
+    ]{resources/preguntaX/datos.csv}{}{}
+\end{table}
+
+% Ejemplo para tablas grandes que necesitan ajustar su tamaño
+\adjustableTable{0.95\textwidth}{Título de tabla grande}{
+    \csvreader[
+        tabular=ccccccccc,
+        table head=\toprule \textbf{Col1} & \textbf{Col2} & \textbf{Col3} & \textbf{Col4} & \textbf{Col5} & \textbf{Col6} & \textbf{Col7} & \textbf{Col8} & \textbf{Col9} \\\midrule,
+        command=#1 & #2 & #3 & #4 & #5 & #6 & #7 & #8 & #9,
+        late after line=\\,
+        table foot=\bottomrule,
+        respect dollar=false,
+        respect percent=false
+    ]{resources/preguntaX/datos_grandes.csv}{}{}
+}
+
+% Para tablas extremadamente anchas, usar el entorno landscape
+\begin{landscape}
+    \adjustableTable{0.95\textwidth}{Título de tabla muy ancha}{
+        \csvreader[
+            tabular=cccccccccccc,
+            table head=\toprule \textbf{Col1} & \textbf{Col2} & \textbf{Col3} & \textbf{Col4} & \textbf{Col5} & \textbf{Col6} & \textbf{Col7} & \textbf{Col8} & \textbf{Col9} & \textbf{Col10} & \textbf{Col11} & \textbf{Col12} \\\midrule,
+            command=#1 & #2 & #3 & #4 & #5 & #6 & #7 & #8 & #9 & #10 & #11 & #12,
+            late after line=\\,
+            table foot=\bottomrule,
+            respect dollar=false,
+            respect percent=false
+        ]{resources/preguntaX/datos_muy_anchos.csv}{}{}
+    }
+\end{landscape}
+
+% Cómo usar el paquete pgfplotstable para tablas más complejas
+% (útil para tablas con muchas opciones de formato)
+\begin{table}[H]
+    \centering
+    \caption{Tabla formateada con pgfplotstable}
+    \label{tab:tabla_pgf}
+    \pgfplotstabletypeset[
+        col sep=comma,
+        string type,
+        columns={Col1,Col2,Col3,Col4,Col5},
+        columns/Col1/.style={column name={\textbf{Columna 1}}},
+        columns/Col2/.style={column name={\textbf{Columna 2}}, dec sep align},
+        columns/Col3/.style={column name={\textbf{Columna 3}}, dec sep align},
+        columns/Col4/.style={column name={\textbf{Columna 4}}, dec sep align},
+        columns/Col5/.style={column name={\textbf{Columna 5}}, dec sep align},
+        every head row/.style={before row=\toprule, after row=\midrule},
+        every last row/.style={after row=\bottomrule},
+    ]{resources/preguntaX/datos.csv}
+\end{table}
+
+% Alternativa más simple usando csvautotabular
+\begin{table}[H]
+    \centering
+    \caption{Tabla simple con csvautotabular}
+    \label{tab:tabla_simple}
+    \csvautotabular{resources/preguntaX/datos.csv}
+\end{table}

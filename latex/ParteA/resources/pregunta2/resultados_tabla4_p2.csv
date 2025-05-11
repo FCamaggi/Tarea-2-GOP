@@ -1,0 +1,8 @@
+Componente,Fórmula,Valor ($),Porcentaje
+Personal contratado,cc*h*w0*T = 11500.0*8.0*2*5,920000.0,10.03
+Personal por boleta,ct*ΣW_t = 215000.0*5,1075000.0,11.72
+Transformación a género,g*ΣY_t = 395.0*333.33,131666.67,1.44
+Producción de prendas,n*ΣZ_t = 265.0*333.33,88333.33,0.96
+Almacenamiento,a*Σ(IB_t+IM_t+IG_t) = 405.0*33.89,13725.0,0.15
+Penalización por demanda insatisfecha,cp*ΣNS_t = 7000.0*991.67,6941666.69,75.7
+Costo total,Suma de todos los componentes,9170391.69,100.0

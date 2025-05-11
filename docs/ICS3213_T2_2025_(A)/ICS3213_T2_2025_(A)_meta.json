@@ -1,0 +1,123 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Parte A - 50 Puntos",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          91.8010025024414,
+          79.97185724973679
+        ],
+        [
+          266.8203206062317,
+          79.97185724973679
+        ],
+        [
+          265.6250081062317,
+          98.95053309202194
+        ],
+        [
+          90.74977344274521,
+          98.95053309202194
+        ]
+      ]
+    },
+    {
+      "title": "Preguntas",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          90.75672250986099,
+          43.640714675188065
+        ],
+        [
+          151.70117193460464,
+          43.640714675188065
+        ],
+        [
+          151.70117193460464,
+          57.576990723609924
+        ],
+        [
+          90.75672250986099,
+          57.576990723609924
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          150
+        ],
+        [
+          "Line",
+          38
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          74
+        ],
+        [
+          "Line",
+          32
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/ICS3213_T2_2025_(A)"
+}
