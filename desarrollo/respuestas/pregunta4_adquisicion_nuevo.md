@@ -8,7 +8,7 @@ Este análisis compara los resultados del modelo base con los resultados obtenid
 
 ### 1. Planificación de Producción y Procesamiento
 
-|  T  |      Caso       | Ropa buen estado (kg) | Ropa mal estado (kg) | Género utilizado (kg) | Prendas producidas | Demanda satisfecha | Demanda insatisfecha |
+|     T     |      Caso       | Ropa buen estado (kg) | Ropa mal estado (kg) | Género utilizado (kg) | Prendas producidas | Demanda satisfecha | Demanda insatisfecha |
 | :-------: | :-------------: | :-------------------: | :------------------: | :-------------------: | :----------------: | :----------------: | :------------------: |
 |     1     |      Base       |        $10.00$        |       $88.89$        |        $88.89$        |      $247.22$      |      $247.22$      |       $162.78$       |
 |     1     |   adquisicion   |        $7.33$         |       $60.20$        |       $156.67$        |      $410.00$      |      $410.00$      |        $0.00$        |
@@ -25,35 +25,35 @@ Este análisis compara los resultados del modelo base con los resultados obtenid
 
 ### 2. Inventarios por Periodo
 
-| T |    Caso     | Inv. ropa buen estado (kg) | Inv. ropa mal estado (kg) | Inv. género (kg) | Almacenamiento total (kg) | % Capacidad utilizada |
-| :-----: | :---------: | :------------------------: | :-----------------------: | :--------------: | :-----------------------: | :-------------------: |
-|    1    |    Base     |           $0.00$           |          $6.11$           |      $0.00$      |          $6.11$           |        $1.33$         |
-|    1    | adquisicion |           $2.67$           |          $34.80$          |     $103.53$     |         $141.00$          |        $30.65$        |
-|    2    |    Base     |           $0.00$           |          $4.44$           |      $0.00$      |          $4.44$           |        $0.97$         |
-|    2    | adquisicion |           $7.67$           |          $43.33$          |      $0.00$      |          $51.00$          |        $11.09$        |
-|    3    |    Base     |           $0.00$           |          $15.56$          |      $0.00$      |          $15.56$          |        $3.38$         |
-|    3    | adquisicion |           $0.00$           |          $10.00$          |      $0.00$      |          $10.00$          |        $2.17$         |
-|    4    |    Base     |           $0.00$           |          $6.11$           |      $0.00$      |          $6.11$           |        $1.33$         |
-|    4    | adquisicion |           $0.00$           |          $0.56$           |      $0.00$      |          $0.56$           |        $0.12$         |
-|    5    |    Base     |           $0.00$           |          $1.67$           |      $0.00$      |          $1.67$           |        $0.36$         |
-|    5    | adquisicion |           $0.00$           |          $0.00$           |      $0.00$      |          $0.00$           |        $0.00$         |
+|  T  |    Caso     | Inv. ropa buen estado (kg) | Inv. ropa mal estado (kg) | Inv. género (kg) | Almacenamiento total (kg) | % Capacidad utilizada |
+| :-: | :---------: | :------------------------: | :-----------------------: | :--------------: | :-----------------------: | :-------------------: |
+|  1  |    Base     |           $0.00$           |          $6.11$           |      $0.00$      |          $6.11$           |        $1.33$         |
+|  1  | adquisicion |           $2.67$           |          $34.80$          |     $103.53$     |         $141.00$          |        $30.65$        |
+|  2  |    Base     |           $0.00$           |          $4.44$           |      $0.00$      |          $4.44$           |        $0.97$         |
+|  2  | adquisicion |           $7.67$           |          $43.33$          |      $0.00$      |          $51.00$          |        $11.09$        |
+|  3  |    Base     |           $0.00$           |          $15.56$          |      $0.00$      |          $15.56$          |        $3.38$         |
+|  3  | adquisicion |           $0.00$           |          $10.00$          |      $0.00$      |          $10.00$          |        $2.17$         |
+|  4  |    Base     |           $0.00$           |          $6.11$           |      $0.00$      |          $6.11$           |        $1.33$         |
+|  4  | adquisicion |           $0.00$           |          $0.56$           |      $0.00$      |          $0.56$           |        $0.12$         |
+|  5  |    Base     |           $0.00$           |          $1.67$           |      $0.00$      |          $1.67$           |        $0.36$         |
+|  5  | adquisicion |           $0.00$           |          $0.00$           |      $0.00$      |          $0.00$           |        $0.00$         |
 
 ### 3. Recursos Humanos y Utilización
 
-|  T  |      Caso       | Trabajadores contratados | Trabajadores por boleta | Total trabajadores | Horas disponibles | Horas utilizadas | % Utilización |
-| :-------: | :-------------: | :----------------------: | :---------------------: | :----------------: | :---------------: | :--------------: | :-----------: |
-|     1     |      Base       |           $2$            |           $2$           |        $4$         |      $32.00$      |     $32.00$      |   $100.00$    |
-|     1     |   adquisicion   |           $2$            |           $3$           |        $5$         |      $40.00$      |     $42.56$      |   $106.40$    |
-|     2     |      Base       |           $2$            |           $1$           |        $3$         |      $24.00$      |     $24.00$      |   $100.00$    |
-|     2     |   adquisicion   |           $2$            |           $3$           |        $5$         |      $40.00$      |     $42.40$      |   $106.00$    |
-|     3     |      Base       |           $2$            |           $2$           |        $4$         |      $32.00$      |     $32.00$      |   $100.00$    |
-|     3     |   adquisicion   |           $2$            |           $4$           |        $6$         |      $48.00$      |     $53.67$      |   $111.81$    |
-|     4     |      Base       |           $2$            |           $0$           |        $2$         |      $16.00$      |     $16.00$      |   $100.00$    |
-|     4     |   adquisicion   |           $2$            |           $0$           |        $2$         |      $16.00$      |     $17.89$      |   $111.81$    |
-|     5     |      Base       |           $2$            |           $0$           |        $2$         |      $16.00$      |     $16.00$      |   $100.00$    |
-|     5     |   adquisicion   |           $2$            |           $0$           |        $2$         |      $16.00$      |     $16.32$      |   $102.02$    |
-| **Total** |    **Base**     |         **$10$**         |         **$5$**         |      **$15$**      |   **$120.00$**    |   **$120.00$**   | **$100.00$**  |
-| **Total** | **adquisicion** |         **$10$**         |        **$10$**         |      **$20$**      |   **$160.00$**    |   **$172.84$**   | **$108.02$**  |
+|     T     |      Caso       | Trabajadores por boleta | Total trabajadores | Horas disponibles | Horas utilizadas | % Utilización |
+| :-------: | :-------------: | :---------------------: | :----------------: | :---------------: | :--------------: | :-----------: |
+|     1     |      Base       |           $2$           |        $4$         |      $32.00$      |     $32.00$      |   $100.00$    |
+|     1     |   adquisicion   |           $3$           |        $5$         |      $40.00$      |     $42.56$      |   $106.40$    |
+|     2     |      Base       |           $1$           |        $3$         |      $24.00$      |     $24.00$      |   $100.00$    |
+|     2     |   adquisicion   |           $3$           |        $5$         |      $40.00$      |     $42.40$      |   $106.00$    |
+|     3     |      Base       |           $2$           |        $4$         |      $32.00$      |     $32.00$      |   $100.00$    |
+|     3     |   adquisicion   |           $4$           |        $6$         |      $48.00$      |     $53.67$      |   $111.81$    |
+|     4     |      Base       |           $0$           |        $2$         |      $16.00$      |     $16.00$      |   $100.00$    |
+|     4     |   adquisicion   |           $0$           |        $2$         |      $16.00$      |     $17.89$      |   $111.81$    |
+|     5     |      Base       |           $0$           |        $2$         |      $16.00$      |     $16.00$      |   $100.00$    |
+|     5     |   adquisicion   |           $0$           |        $2$         |      $16.00$      |     $16.32$      |   $102.02$    |
+| **Total** |    **Base**     |         **$5$**         |      **$15$**      |   **$120.00$**    |   **$120.00$**   | **$100.00$**  |
+| **Total** | **adquisicion** |        **$10$**         |      **$20$**      |   **$160.00$**    |   **$172.84$**   | **$108.02$**  |
 
 ### 4. Desglose de Costos
 
@@ -142,11 +142,3 @@ El modelo ha respondido a la adquisicion técnica mediante:
    - La reducción del costo total ($-11.25\%$)
    - La disminución de la demanda insatisfecha ($-50.84\%$)
    - La mayor necesidad de personal ($+100.00\%$)
-
-## Recomendaciones
-
-1. Mantener las adaptaciones implementadas que han permitido minimizar el impacto de la adquisicion.
-
-2. Mantener los niveles actuales de personal que han demostrado ser efectivos.
-
-3. Revisar y optimizar los procesos de inventario para reducir costos operativos.

@@ -40,20 +40,20 @@ Este análisis compara los resultados del modelo base con los resultados obtenid
 
 ### 3. Recursos Humanos y Utilización
 
-|     T     |   Caso    | Trabajadores contratados | Trabajadores por boleta | Total trabajadores | Horas disponibles | Horas utilizadas | % Utilización |
-| :-------: | :-------: | :----------------------: | :---------------------: | :----------------: | :---------------: | :--------------: | :-----------: |
-|     1     |   Base    |           $2$            |           $2$           |        $4$         |      $32.00$      |     $32.00$      |   $100.00$    |
-|     1     |   Falla   |           $2$            |           $2$           |        $4$         |      $32.00$      |     $32.00$      |   $100.00$    |
-|     2     |   Base    |           $2$            |           $1$           |        $3$         |      $24.00$      |     $24.00$      |   $100.00$    |
-|     2     |   Falla   |           $2$            |           $2$           |        $4$         |      $32.00$      |     $32.00$      |   $100.00$    |
-|     3     |   Base    |           $2$            |           $2$           |        $4$         |      $32.00$      |     $32.00$      |   $100.00$    |
-|     3     |   Falla   |           $2$            |           $3$           |        $5$         |      $40.00$      |     $40.00$      |   $100.00$    |
-|     4     |   Base    |           $2$            |           $0$           |        $2$         |      $16.00$      |     $16.00$      |   $100.00$    |
-|     4     |   Falla   |           $2$            |           $0$           |        $2$         |      $16.00$      |     $14.74$      |    $92.11$    |
-|     5     |   Base    |           $2$            |           $0$           |        $2$         |      $16.00$      |     $16.00$      |   $100.00$    |
-|     5     |   Falla   |           $2$            |           $0$           |        $2$         |      $16.00$      |     $16.00$      |   $100.00$    |
-| **Total** | **Base**  |         **$10$**         |         **$5$**         |      **$15$**      |   **$120.00$**    |   **$120.00$**   | **$100.00$**  |
-| **Total** | **Falla** |         **$10$**         |         **$7$**         |      **$17$**      |   **$136.00$**    |   **$134.74$**   |  **$99.07$**  |
+|     T     |   Caso    | Trabajadores por boleta | Total trabajadores | Horas disponibles | Horas utilizadas | % Utilización |
+| :-------: | :-------: | :---------------------: | :----------------: | :---------------: | :--------------: | :-----------: |
+|     1     |   Base    |           $2$           |        $4$         |      $32.00$      |     $32.00$      |   $100.00$    |
+|     1     |   Falla   |           $2$           |        $4$         |      $32.00$      |     $32.00$      |   $100.00$    |
+|     2     |   Base    |           $1$           |        $3$         |      $24.00$      |     $24.00$      |   $100.00$    |
+|     2     |   Falla   |           $2$           |        $4$         |      $32.00$      |     $32.00$      |   $100.00$    |
+|     3     |   Base    |           $2$           |        $4$         |      $32.00$      |     $32.00$      |   $100.00$    |
+|     3     |   Falla   |           $3$           |        $5$         |      $40.00$      |     $40.00$      |   $100.00$    |
+|     4     |   Base    |           $0$           |        $2$         |      $16.00$      |     $16.00$      |   $100.00$    |
+|     4     |   Falla   |           $0$           |        $2$         |      $16.00$      |     $14.74$      |    $92.11$    |
+|     5     |   Base    |           $0$           |        $2$         |      $16.00$      |     $16.00$      |   $100.00$    |
+|     5     |   Falla   |           $0$           |        $2$         |      $16.00$      |     $16.00$      |   $100.00$    |
+| **Total** | **Base**  |         **$5$**         |      **$15$**      |   **$120.00$**    |   **$120.00$**   | **$100.00$**  |
+| **Total** | **Falla** |         **$7$**         |      **$17$**      |   **$136.00$**    |   **$134.74$**   |  **$99.07$**  |
 
 ### 4. Desglose de Costos
 
@@ -142,11 +142,3 @@ El modelo ha respondido a la falla técnica mediante:
    - El aumento del costo total ($+4.36\%$)
    - La disminución de la demanda insatisfecha ($-0.36\%$)
    - La mayor necesidad de personal ($+40.00\%$)
-
-## Recomendaciones
-
-1. Evaluar la posibilidad de reparar la máquina para recuperar la eficiencia original del proceso.
-
-2. Mantener los niveles actuales de personal que han demostrado ser efectivos.
-
-3. Continuar con la política actual de gestión de inventarios que ha demostrado ser eficiente.
