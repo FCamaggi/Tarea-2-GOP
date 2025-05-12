@@ -118,12 +118,12 @@ El sistema muestra **deseconomías de escala** en ambos escenarios, ya que las e
 
 1. **Escenario de demanda reducida (80%)**:
 
-   - Resulta en una reducción significativa de costos (31.30%), mejor satisfacción de la demanda (64.53% vs 51.63% en el escenario base) y mayor utilización de recursos humanos (100.00% vs 100.00%).
+   - Resulta en una reducción significativa de costos (31.30%), mejor satisfacción de la demanda (64.53% vs 51.63% en el escenario base).
    - El costo por prenda satisfecha es menor ($5953.13 vs $8664.94), lo que sugiere ausencia de economías de escala en este rango de operación.
 
 2. **Escenario de demanda incrementada (120%)**:
 
-   - Resulta en un aumento significativo de costos (31.30%), menor satisfacción de la demanda (43.02% vs 51.63% en el escenario base) y menor utilización de recursos humanos (100.00% vs 100.00%).
+   - Resulta en un aumento significativo de costos (31.30%), menor satisfacción de la demanda (43.02% vs 51.63% en el escenario base).
    - El costo por prenda satisfecha es mayor ($11376.75 vs $8664.94), lo que sugiere deseconomías de escala en este rango de operación.
 
 3. **Implicaciones para la planificación**:
