@@ -47,7 +47,7 @@ El modelo de optimización lineal para la Fundación Circular ha sido resuelto c
 |        Transformación a género        |           $g*ΣY_t$            |  $131,666.67$  |  $1.44\%$  |
 |         Producción de prendas         |           $n*ΣZ_t$            |  $88,333.33$   |  $0.96\%$  |
 |            Almacenamiento             |     $a*Σ(IB_t+IM_t+IG_t)$     |  $13,725.00$   |  $0.15\%$  |
-| Penalización por demanda insatisfecha |         $cp\*ΣNS_t $          | $6,941,666.69$ | $75.70\%$  |
+| Penalización por demanda insatisfecha |          $cp*ΣNS_t$           | $6,941,666.69$ | $75.70\%$  |
 |              Costo total              | Suma de todos los componentes | $9,170,391.69$ | $100.00\%$ |
 
 ## 5. Análisis de resultados
