@@ -86,7 +86,7 @@ Este análisis compara los resultados del modelo base con los resultados obtenid
 
 - Caso base: $991.67$ prendas
 - Caso con dotación mínima: $991.67$ prendas
-- Variación: $-0.00\%$
+- Variación: $+0.00\%$
 
 ### 4. Utilización de Personal
 
