@@ -43,7 +43,7 @@ def resolver_modelo_general(demanda_override=None):
      # Si se proporciona un valor específico para tau_g, usarlo
     if demanda_override is not None:
         for i in range(len(d)):
-          d[i] = d[i] *  demanda_override
+          d[i] = int(d[i] *  demanda_override)
 
     # aumentar la demanda por demanda override
 

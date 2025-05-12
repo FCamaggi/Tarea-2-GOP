@@ -1,150 +1,165 @@
-# Pregunta 5: Análisis de Escenario - Política de Dotación Mínima
+# Análisis Comparativo: Impacto de la Política de Dotación Mínima de Personal
 
-## Planteamiento de la pregunta
+## Introducción
 
-> Considere ahora que la fundación ha establecido una nueva política operativa, la cual exige mantener al menos tr trabajadores activos en cada periodo del horizonte de planificación. Esta dotación mínima debe contemplar tanto a los trabajadores contratados como a aquellos que prestan servicios mediante boleta. Incorpore esta restricción al modelo y resuelva nuevamente. Compare los resultados obtenidos con los de la solución inicial y analice las consecuencias de esta política en los costos totales, inventarios y cumplimiento de la demanda.
+Este análisis compara los resultados del modelo base con los resultados obtenidos tras aplicar la política de dotación mínima de personal que exige mantener un mínimo de $3.0$ trabajadores activos en cada periodo.
 
-## Desarrollo de la respuesta
+## Tablas Comparativas
 
-### Modificación del modelo
+### 1. Planificación de Producción y Procesamiento
 
-La nueva política operativa establece un mínimo de tr trabajadores activos por periodo. Esto introduce un nuevo parámetro:
+|  Periodo  |   Caso    | Ropa buen estado (kg) | Ropa mal estado (kg) | Género utilizado (kg) | Prendas producidas | Demanda satisfecha | Demanda insatisfecha |
+| :-------: | :-------: | :-------------------: | :------------------: | :-------------------: | :----------------: | :----------------: | :------------------: |
+|     1     |   Base    |         $10.00$         |        $88.89$         |         $88.89$         |       $247.22$       |       $247.22$       |        $162.78$        |
+|     1     |   Dotación   |         $10.00$         |        $66.67$         |         $66.67$         |       $191.67$       |       $191.67$       |        $218.33$        |
+|     2     |   Base    |         $5.00$          |        $66.67$         |         $66.67$         |       $179.17$       |       $179.17$       |        $220.83$        |
+|     2     |   Dotación   |         $5.00$          |        $66.67$         |         $66.67$         |       $179.17$       |       $179.17$       |        $220.83$        |
+|     3     |   Base    |         $20.00$          |        $88.89$         |         $88.89$         |       $272.22$       |       $272.22$       |        $147.78$        |
+|     3     |   Dotación   |         $20.00$          |        $66.67$        |        $66.67$         |       $216.67$       |       $216.67$       |        $203.33$        |
+|     4     |   Base    |         $15.00$          |        $44.44$         |         $44.44$         |       $148.61$       |       $148.61$       |        $256.39$        |
+|     4     |   Dotación   |         $15.00$          |        $66.67$         |         $66.67$         |       $204.17$       |       $204.17$       |        $200.83$        |
+|     5     |   Base    |         $40.00$          |        $44.44$         |         $44.44$         |       $211.11$       |       $211.11$       |        $203.89$        |
+|     5     |   Dotación   |         $40.00$          |        $66.67$         |         $66.67$         |       $266.67$       |       $266.67$       |        $148.33$        |
+| **Total** | **Base**  |       **$90.00$**       |      **$333.33$**      |      **$333.33$**       |    **$1058.33$**     |    **$1058.33$**     |      **$991.67$**      |
+| **Total** | **Dotación** |       **$90.00$**       |      **$333.33$**      |      **$333.33$**       |    **$1058.33$**     |    **$1058.33$**     |      **$991.67$**      |
 
-- **tr**: Número mínimo de trabajadores activos requeridos por periodo
+### 2. Inventarios por Periodo
 
-Esta política se traduce en una nueva restricción que debe incorporarse al modelo:
+| Periodo | Caso  | Inv. ropa buen estado (kg) | Inv. ropa mal estado (kg) | Inv. género (kg) | Almacenamiento total (kg) | % Capacidad utilizada |
+| :-----: | :---: | :------------------------: | :-----------------------: | :--------------: | :-----------------------: | :-------------------: |
+|    1    | Base  |            $0.00$            |           $6.11$            |       $0.00$       |           $6.11$            |         $1.33$          |
+|    1    | Dotación |            $0.00$            |           $28.33$           |       $0.00$       |           $28.33$           |         $6.16$          |
+|    2    | Base  |            $0.00$            |           $4.44$            |       $0.00$       |           $4.44$            |         $0.97$          |
+|    2    | Dotación |            $0.00$            |           $26.67$            |       $0.00$       |           $26.67$            |         $5.80$          |
+|    3    | Base  |            $0.00$            |           $15.56$           |       $0.00$       |           $15.56$           |         $3.38$          |
+|    3    | Dotación |            $0.00$            |           $60.00$            |       $0.00$       |           $60.00$            |         $13.04$          |
+|    4    | Base  |            $0.00$            |           $6.11$            |       $0.00$       |           $6.11$            |         $1.33$          |
+|    4    | Dotación |            $0.00$            |           $28.33$            |       $0.00$       |           $28.33$            |         $6.16$          |
+|    5    | Base  |            $0.00$            |           $1.67$            |       $0.00$       |           $1.67$            |         $0.36$          |
+|    5    | Dotación |            $0.00$            |           $1.67$            |       $0.00$       |           $1.67$            |         $0.36$          |
 
-**Nueva restricción**:
-$$w_0 + W_t \geq tr \quad \forall t \in T$$
+### 3. Recursos Humanos y Utilización
 
-Donde:
+|  Periodo  |   Caso    | Trabajadores contratados | Trabajadores por boleta | Total trabajadores | Horas disponibles | Horas utilizadas | % Utilización |
+| :-------: | :-------: | :----------------------: | :---------------------: | :----------------: | :---------------: | :--------------: | :-----------: |
+|     1     |   Base    |            $2$             |            $2$            |         $4$          |       $32.00$       |      $32.00$       |    $100.00$     |
+|     1     |   Dotación   |            $2$             |            $1$            |         $3$          |       $24.00$       |      $24.00$       |    $100.00$     |
+|     2     |   Base    |            $2$             |            $1$            |         $3$          |       $24.00$       |      $24.00$       |    $100.00$     |
+|     2     |   Dotación   |            $2$             |            $1$            |         $3$          |       $24.00$       |      $24.00$       |    $100.00$     |
+|     3     |   Base    |            $2$             |            $2$            |         $4$          |       $32.00$       |      $32.00$       |    $100.00$     |
+|     3     |   Dotación   |            $2$             |            $1$            |         $3$          |       $24.00$       |      $24.00$       |    $100.00$     |
+|     4     |   Base    |            $2$             |            $0$            |         $2$          |       $16.00$       |      $16.00$       |    $100.00$     |
+|     4     |   Dotación   |            $2$             |            $1$            |         $3$          |       $24.00$       |      $24.00$       |    $100.00$     |
+|     5     |   Base    |            $2$             |            $0$            |         $2$          |       $16.00$       |      $16.00$       |    $100.00$     |
+|     5     |   Dotación   |            $2$             |            $1$            |         $3$          |       $24.00$       |      $24.00$       |    $100.00$     |
+| **Total** | **Base**  |          **$10$**          |          **$5$**          |       **$15$**       |    **$120.00$**     |    **$120.00$**    |  **$100.00$**   |
+| **Total** | **Dotación** |          **$10$**          |          **$5$**          |       **$15$**       |    **$120.00$**     |    **$120.00$**    |  **$100.00$**   |
 
-- $w_0$ es la dotación inicial de trabajadores contratados
-- $W_t$ es el número de trabajadores por boleta contratados en el periodo $t$
+### 4. Desglose de Costos
 
-La modificación en el código de implementación sería:
+|              Componente               |    Caso Base     |             |    Caso con Dotación    |             | Variación  |
+| :-----------------------------------: | :--------------: | :---------: | :--------------: | :---------: | :--------: |
+|                                       |    Valor ($)     | Porcentaje  |    Valor ($)     | Porcentaje  | Porcentual |
+|          Personal contratado          |    $920,000.00$    |   $10.03\%$    |    $920,000.00$    |    $9.98\%$    |   $0.0\%$    |
+|          Personal por boleta          |   $1,075,000.00$   |   $11.72\%$    |   $1,075,000.00$   |   $11.67\%$    |  $0.00\%$   |
+|        Transformación a género        |    $131,666.67$    |    $1.44\%$    |    $131,666.67$    |    $1.43\%$    |   $0.00\%$   |
+|         Producción de prendas         |    $88,333.33$     |    $0.96\%$    |    $88,333.33$     |    $0.96\%$    |   $0.00\%$   |
+|            Almacenamiento             |    $13,725.00$     |    $0.15\%$    |    $58,725.00$     |    $0.64\%$    |  $327.87\%$   |
+| Penalización por demanda insatisfecha |   $6,941,666.69$   |   $75.70\%$    |   $6,941,666.55$   |   $75.33\%$    |   $-0.00\%$   |
+|            **Costo total**            | **$9,170,391.69$** | **$100\%$** | **$9,215,391.55$** | **$100\%$** | **$0.49\%$** |
 
-```python
-# Nuevo parámetro
-tr = 10  # Ejemplo: mínimo de 10 trabajadores por periodo
+## Impacto en Indicadores Clave
 
-# Nueva restricción de dotación mínima
-for t in range(T):
-    problem += w0 + W[t] >= tr
-```
+### 1. Costo Total
 
-### Resultados comparativos
+- Caso base: $9,170,391.69$
+- Caso con dotación mínima: $9,215,391.55$
+- Variación: $+0.49\%$
 
-#### Tabla 1: Comparación de recursos humanos
+### 2. Procesamiento de Ropa en Mal Estado
+- Caso base: $333.33$ kg
+- Caso con dotación mínima: $333.33$ kg
+- Variación: $+0.00\%$
 
-| Periodo         | Trabajadores activos |                                | Horas disponibles |                                      | % Utilización horas-hombre        |                                      |
-| --------------- | -------------------- | ------------------------------ | ----------------- | ------------------------------------ | --------------------------------- | ------------------------------------ |
-|                 | **Base**             | **Dotación mín.**              | **Base**          | **Dotación mín.**                    | **Base**                          | **Dotación mín.**                    |
-| 1               | w₀+W₁                | w₀+W₁'                         | h\*(w₀+W₁)        | h\*(w₀+W₁')                          | (τg*Y₁+τn*Z₁)/(h*(w₀+W₁))*100%    | (τg*Y₁'+τn*Z₁')/(h*(w₀+W₁'))*100%    |
-| 2               | w₀+W₂                | w₀+W₂'                         | h\*(w₀+W₂)        | h\*(w₀+W₂')                          | (τg*Y₂+τn*Z₂)/(h*(w₀+W₂))*100%    | (τg*Y₂'+τn*Z₂')/(h*(w₀+W₂'))*100%    |
-| ...             | ...                  | ...                            | ...               | ...                                  | ...                               | ...                                  |
-| T               | w₀+W_T               | w₀+W_T'                        | h\*(w₀+W_T)       | h\*(w₀+W_T')                         | (τg*Y_T+τn*Z_T)/(h*(w₀+W_T))*100% | (τg*Y_T'+τn*Z_T')/(h*(w₀+W_T'))*100% |
-| **Total**       | **w₀\*T+ΣW_t**       | **w₀\*T+ΣW_t'**                | **h*(w₀*T+ΣW_t)** | **h*(w₀*T+ΣW_t')**                   | **Promedio**                      | **Promedio**                         |
-| **Variación**   | **-**                | **ΣW_t' - ΣW_t**               | **-**             | **h\*(ΣW_t' - ΣW_t)**                | **-**                             | **-**                                |
-| **% Variación** | **-**                | **(ΣW_t' - ΣW_t)/ΣW_t × 100%** | **-**             | **h*(ΣW_t' - ΣW_t)/(h*ΣW_t) × 100%** | **-**                             | **-**                                |
+### 3. Demanda Insatisfecha
+- Caso base: $991.67$ prendas
+- Caso con dotación mínima: $991.67$ prendas
+- Variación: $-0.00\%$
 
-#### Tabla 2: Comparación de producción y procesamiento
+### 4. Utilización de Personal
+- Caso base: $5$ trabajadores por boleta en total
+- Caso con dotación mínima: $5$ trabajadores por boleta en total
+- Variación: $+0.00\%$
 
-| Periodo         | Ropa en mal estado procesada (kg) |                                | Género utilizado (kg) |                                | Prendas producidas |                       |
-| --------------- | --------------------------------- | ------------------------------ | --------------------- | ------------------------------ | ------------------ | --------------------- |
-|                 | **Base**                          | **Dotación mín.**              | **Base**              | **Dotación mín.**              | **Base**           | **Dotación mín.**     |
-| 1               | Y₁                                | Y₁'                            | Z₁                    | Z₁'                            | (X₁+Z₁)/p          | (X₁'+Z₁')/p           |
-| 2               | Y₂                                | Y₂'                            | Z₂                    | Z₂'                            | (X₂+Z₂)/p          | (X₂'+Z₂')/p           |
-| ...             | ...                               | ...                            | ...                   | ...                            | ...                | ...                   |
-| T               | Y_T                               | Y_T'                           | Z_T                   | Z_T'                           | (X_T+Z_T)/p        | (X_T'+Z_T')/p         |
-| **Total**       | **ΣY_t**                          | **ΣY_t'**                      | **ΣZ_t**              | **ΣZ_t'**                      | **(ΣX_t+ΣZ_t)/p**  | **(ΣX_t'+ΣZ_t')/p**   |
-| **Variación**   | **-**                             | **ΣY_t' - ΣY_t**               | **-**                 | **ΣZ_t' - ΣZ_t**               | **-**              | **Variación total**   |
-| **% Variación** | **-**                             | **(ΣY_t' - ΣY_t)/ΣY_t × 100%** | **-**                 | **(ΣZ_t' - ΣZ_t)/ΣZ_t × 100%** | **-**              | **% Variación total** |
+## Gráficos Comparativos
 
-#### Tabla 3: Comparación de inventarios
+### Comparación de Producción vs Demanda
+![Comparación de Producción vs Demanda](../src/pregunta5/grafico_comparativo_produccion_demanda.png)
 
-| Periodo         | Inventario total (kg)   |                              | % Capacidad utilizada    |                                 |
-| --------------- | ----------------------- | ---------------------------- | ------------------------ | ------------------------------- |
-|                 | **Base**                | **Dotación mín.**            | **Base**                 | **Dotación mín.**               |
-| 1               | IB₁+IM₁+IG₁             | IB₁'+IM₁'+IG₁'               | (IB₁+IM₁+IG₁)/s\*100%    | (IB₁'+IM₁'+IG₁')/s\*100%        |
-| 2               | IB₂+IM₂+IG₂             | IB₂'+IM₂'+IG₂'               | (IB₂+IM₂+IG₂)/s\*100%    | (IB₂'+IM₂'+IG₂')/s\*100%        |
-| ...             | ...                     | ...                          | ...                      | ...                             |
-| T               | IB_T+IM_T+IG_T          | IB_T'+IM_T'+IG_T'            | (IB_T+IM_T+IG_T)/s\*100% | (IB_T'+IM_T'+IG_T')/s\*100%     |
-| **Promedio**    | **Σ(IB_t+IM_t+IG_t)/T** | **Σ(IB_t'+IM_t'+IG_t')/T**   | **Promedio Base**        | **Promedio Dotación mín.**      |
-| **Variación**   | **-**                   | **Diferencia en promedio**   | **-**                    | **Diferencia en %**             |
-| **% Variación** | **-**                   | **% Diferencia en promedio** | **-**                    | **% Diferencia en utilización** |
+*Figura 1: Comparación de la producción y demanda entre el caso base y el caso con dotación mínima de personal.*
 
-#### Tabla 4: Comparación de satisfacción de demanda
+### Comparación de Recursos Humanos
+![Comparación de Recursos Humanos](../src/pregunta5/grafico_comparativo_recursos_humanos.png)
 
-| Periodo         | Demanda satisfecha |                                       | Demanda no satisfecha |                                  | % Satisfacción              |                                       |
-| --------------- | ------------------ | ------------------------------------- | --------------------- | -------------------------------- | --------------------------- | ------------------------------------- |
-|                 | **Base**           | **Dotación mín.**                     | **Base**              | **Dotación mín.**                | **Base**                    | **Dotación mín.**                     |
-| 1               | d₁-NS₁             | d₁-NS₁'                               | NS₁                   | NS₁'                             | (d₁-NS₁)/d₁\*100%           | (d₁-NS₁')/d₁\*100%                    |
-| 2               | d₂-NS₂             | d₂-NS₂'                               | NS₂                   | NS₂'                             | (d₂-NS₂)/d₂\*100%           | (d₂-NS₂')/d₂\*100%                    |
-| ...             | ...                | ...                                   | ...                   | ...                              | ...                         | ...                                   |
-| T               | d_T-NS_T           | d_T-NS_T'                             | NS_T                  | NS_T'                            | (d_T-NS_T)/d_T\*100%        | (d_T-NS_T')/d_T\*100%                 |
-| **Total**       | **Σd_t-ΣNS_t**     | **Σd_t-ΣNS_t'**                       | **ΣNS_t**             | **ΣNS_t'**                       | **(Σd_t-ΣNS_t)/Σd_t\*100%** | **(Σd_t-ΣNS_t')/Σd_t\*100%**          |
-| **Variación**   | **-**              | **Variación en demanda satisfecha**   | **-**                 | **ΣNS_t' - ΣNS_t**               | **-**                       | **Variación en % satisfacción**       |
-| **% Variación** | **-**              | **% Variación en demanda satisfecha** | **-**                 | **(ΣNS_t' - ΣNS_t)/ΣNS_t\*100%** | **-**                       | **Puntos porcentuales de diferencia** |
+*Figura 2: Comparación de la utilización de recursos humanos entre el caso base y el caso con dotación mínima de personal.*
 
-#### Tabla 5: Comparación de costos
+### Comparación de Costos
+![Comparación de Costos](../src/pregunta5/grafico_comparativo_costos.png)
 
-| Componente de costo                   | Base ($)             | Dotación mín. ($)       | Variación ($)                                 | % Variación                                                         |
-| ------------------------------------- | -------------------- | ----------------------- | --------------------------------------------- | ------------------------------------------------------------------- |
-| Personal contratado                   | cc*h*w₀\*T           | cc*h*w₀\*T              | 0                                             | 0%                                                                  |
-| Personal por boleta                   | ct\*ΣW_t             | ct\*ΣW_t'               | ct\*(ΣW_t' - ΣW_t)                            | (ΣW_t' - ΣW_t)/ΣW_t × 100%                                          |
-| Transformación a género               | g\*ΣY_t              | g\*ΣY_t'                | g\*(ΣY_t' - ΣY_t)                             | (ΣY_t' - ΣY_t)/ΣY_t × 100%                                          |
-| Producción de prendas                 | n\*ΣZ_t              | n\*ΣZ_t'                | n\*(ΣZ_t' - ΣZ_t)                             | (ΣZ_t' - ΣZ_t)/ΣZ_t × 100%                                          |
-| Almacenamiento                        | a\*Σ(IB_t+IM_t+IG_t) | a\*Σ(IB_t'+IM_t'+IG_t') | a\*[Σ(IB_t'+IM_t'+IG_t') - Σ(IB_t+IM_t+IG_t)] | [Σ(IB_t'+IM_t'+IG_t') - Σ(IB_t+IM_t+IG_t)]/Σ(IB_t+IM_t+IG_t) × 100% |
-| Penalización por demanda insatisfecha | cp\*ΣNS_t            | cp\*ΣNS_t'              | cp\*(ΣNS_t' - ΣNS_t)                          | (ΣNS_t' - ΣNS_t)/ΣNS_t × 100%                                       |
-| **Costo total**                       | **Z_base**           | **Z_dotmin**            | **Z_dotmin - Z_base**                         | **(Z_dotmin - Z_base)/Z_base × 100%**                               |
+*Figura 3: Comparación de los costos totales y su distribución entre el caso base y el caso con dotación mínima de personal.*
 
-### Análisis de impacto
+### Comparación de Procesamiento de Ropa en Mal Estado
+![Comparación de Procesamiento](../src/pregunta5/grafico_comparativo_procesamiento.png)
 
-#### 1. Impacto en los costos totales
+*Figura 4: Comparación del procesamiento de ropa en mal estado entre el caso base y el caso con dotación mínima de personal.*
 
-La política de dotación mínima de trabajadores probablemente resulte en:
+## Análisis Detallado
 
-- **Aumento en costos de personal**: Especialmente en periodos donde la demanda es baja y no se requeriría tantos trabajadores.
-- **Posible sobreutilización de recursos**: En periodos con menor necesidad de producción, podría haber recursos humanos ociosos.
-- **Posible reducción en penalizaciones**: La mayor disponibilidad de mano de obra podría permitir satisfacer mejor la demanda.
+### Impacto en la Capacidad de Producción
 
-El impacto neto en los costos totales dependerá de si el incremento en costos de personal es compensado por mejoras en otros aspectos operativos.
+La política de dotación mínima de personal que exige mantener al menos $3.0$ trabajadores activos en cada periodo ha tenido los siguientes efectos en la capacidad productiva del sistema:
 
-#### 2. Impacto en los inventarios
+1. **Redistribución por Periodos**: Aunque el total de ropa en mal estado procesada se mantiene igual ($333.33$ kg), la restricción de dotación mínima ha modificado significativamente su distribución entre periodos:
+   - En el periodo 1: Disminución del procesamiento (de $88.89$ kg a $66.67$ kg)
+   - En el periodo 3: Disminución del procesamiento (de $88.89$ kg a $66.67$ kg)
+   - En el periodo 4: Aumento del procesamiento (de $44.44$ kg a $66.67$ kg)
+   - En el periodo 5: Aumento del procesamiento (de $44.44$ kg a $66.67$ kg)
 
-La política podría generar:
+2. **Redistribución de la Producción de Prendas**: Similar al procesamiento de ropa, la producción de prendas se redistribuye entre periodos, con una notable mejora en el periodo 5 (de $211.11$ a $266.67$ prendas), $reduciendo la demanda insatisfecha en ese periodo de $203.89$ a $148.33$ prendas.
 
-- **Cambios en patrones de producción**: Al tener más capacidad de procesamiento disponible en algunos periodos, podría modificarse la planificación de producción.
-- **Posible incremento en inventarios**: Si se procesa más material del necesario debido a la disponibilidad de mano de obra.
-- **Cambios en la utilización de la capacidad de almacenamiento**: Dependiendo de cómo se ajusten los patrones de producción e inventario.
+3. **Costos de Almacenamiento**: El costo de almacenamiento aumentó significativamente en un $327.87\%$, debido a que la restricción de dotación mínima fuerza a mantener inventarios más altos entre periodos para optimizar el uso del personal obligatorio.
 
-#### 3. Impacto en el cumplimiento de la demanda
+### Adaptación de la Estrategia Operativa
 
-La política de dotación mínima podría resultar en:
+El modelo ha respondido a la política de dotación mínima de personal mediante:
 
-- **Mejor satisfacción de la demanda**: Al garantizar una capacidad mínima de procesamiento en cada periodo.
-- **Reducción de penalizaciones por demanda insatisfecha**: Debido a la mayor disponibilidad de recursos para procesar material.
-- **Mayor flexibilidad operativa**: Ante fluctuaciones inesperadas en la demanda o suministro.
+1. **Ajuste de Personal por Periodo**: En los periodos 4 y 5, donde el caso base utilizaba solo $2.0$ trabajadores, la restricción de dotación mínima fuerza a aumentar a $3.0$ trabajadores, redistribuyendo trabajadores por boleta para mantener el total en $15.0$ trabajadores.
 
-## Análisis de trade-offs
+2. **Gestión de Inventarios**: Notablemente, los niveles de inventario de ropa en mal estado aumentaron significativamente:
+   - Periodo 1: de $6.11$ kg a $28.33$ kg
+   - Periodo 2: de $4.44$ kg a $26.67$ kg
+   - Periodo 3: de $15.56$ kg a $60.00$ kg
+   - Periodo 4: de $6.11$ kg a $28.33$ kg
 
-La política de dotación mínima presenta importantes trade-offs:
+## Conclusiones
 
-1. **Costo vs. nivel de servicio**: Un aumento en los costos de personal podría justificarse si mejora significativamente el cumplimiento de demanda y reduce las penalizaciones.
+1. La política de dotación mínima de personal ha tenido un impacto moderado en el costo total de operación ($+0.49\%$), pero ha causado cambios significativos en la estrategia operativa de la fundación.
 
-2. **Eficiencia vs. seguridad operativa**: Aunque podría disminuir la eficiencia en uso de recursos humanos, proporciona una mayor seguridad operativa al garantizar una capacidad mínima de procesamiento.
+2. El sistema se ha adaptado a la restricción de dotación mínima principalmente a través de:
+   - La redistribución del procesamiento de ropa entre periodos
+   - El aumento significativo de los inventarios intermedios
+   - El incremento de personal en periodos específicos (4 y 5)
 
-3. **Flexibilidad vs. estructura**: La política reduce la flexibilidad en la contratación pero proporciona una estructura operativa más estable.
+3. Las principales consecuencias observadas son:
+   - Aumento drástico de los costos de almacenamiento ($327.87\%$)
+   - Redistribución de la producción hacia periodos finales
+   - Mantenimiento del nivel total de producción y servicio al cliente
+   - Mayor estabilidad laboral al garantizar un mínimo de $3.0$ trabajadores en todos los periodos
 
-## Conclusiones preliminares
+## Recomendaciones
 
-La implementación de una política de dotación mínima de tr trabajadores tendría los siguientes impactos generales:
+1. Evaluar el impacto social y financiero de la política de dotación mínima, considerando el trade-off entre estabilidad laboral y el aumento de costos de almacenamiento.
 
-1. **Efectos económicos**: Probablemente genere un incremento en los costos totales debido al aumento en costos de personal, aunque este incremento podría ser parcialmente compensado por mejoras en la satisfacción de demanda.
+2. Explorar opciones para optimizar la gestión de inventarios bajo la restricción de dotación mínima, posiblemente mediante mejoras en los espacios de almacenamiento.
 
-2. **Efectos operativos**: Podría modificar los patrones óptimos de producción e inventario, y proporcionar mayor estabilidad y capacidad de respuesta operativa.
-
-3. **Efectos estratégicos**: La política representa un cambio de enfoque desde la optimización pura de costos hacia la garantía de un nivel mínimo de capacidad operativa.
-
-La cuantificación exacta de estos impactos se determinará una vez resuelto el modelo actualizado con los parámetros específicos del problema.
+3. Considerar políticas de dotación mínima variables por periodo, que podrían reducir costos manteniendo beneficios sociales en periodos críticos.
